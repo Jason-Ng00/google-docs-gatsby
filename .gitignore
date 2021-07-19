@@ -5,6 +5,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+*.env
+client_secret_470757202908-me6bunjabst6l6eljn2uccq88jlh0c2m.apps.googleusercontent.com.json
+
+
 # Runtime data
 pids
 *.pid
