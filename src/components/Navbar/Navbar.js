@@ -41,10 +41,10 @@ export default function NavBar({ menuItems }) {
 
   return (
     <Container className={styles.navbar}>
-
+{/* 
       <Navbar expand="lg"
       >
-      {/* <MDXProvider
+      <MDXProvider
       components={{
         // Map HTML element tag to React component
         // ul: ({props}) => (<HoverControlledDropdown className={styles.navItem} title={props}><li>{props}</li></HoverControlledDropdown>),
@@ -57,12 +57,26 @@ export default function NavBar({ menuItems }) {
       }}
     >
         <MDXRenderer>{data.menu.childMdx.body}</MDXRenderer>
-        </MDXProvider> */}
+        </MDXProvider>
 
-     {data.pagesPath.edges.map((edge) => {
+
+
+      </Navbar> */}
+
+        <Container>
+
+        <Navbar expand="lg">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+            
+            <Nav className="me-auto">
+                <Nav.Link className={styles.navItemHome} href="/">Home</Nav.Link>
+                
+                {data.pagesPath.edges.map((edge) => {
          if(edge.node.breadcrumb.length == 1) {
-             return <Nav.Link className={styles.navItemHome} href={edge.node.breadcrumb[0].slug}>{edge.node.breadcrumb[0].name}</Nav.Link>
-         } else {
+           if(edge.node.breadcrumb[0].name != "Home") {
+             return <Nav.Link className={styles.navItemNoDropdown} href={edge.node.breadcrumb[0].slug}>{edge.node.breadcrumb[0].name}</Nav.Link>
+         }} else {
              var rows=[];
              for( var i =1; i < edge.node.breadcrumb.length; i++) {
                 rows.push(<NavDropdown.Item href={edge.node.breadcrumb[i].slug} target="_self">{edge.node.breadcrumb[i].name}</NavDropdown.Item>
@@ -73,20 +87,6 @@ export default function NavBar({ menuItems }) {
              </HoverControlledDropdown>
             }
      })}
-
-      </Navbar>
-
-        <Container>
-        <button
-        onClick={() => {
-         alert(JSON.stringify(data.pagesPath.edges[0].node))
-        }} />
-        <Navbar expand="lg">
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-                <Nav.Link className={styles.navItemHome} href="/">Home</Nav.Link>
-
                 <HoverControlledDropdown className={styles.navItem} title="Education">
                     <NavDropdown.Item href="https://libportal.nus.edu.sg/frontend/ms/teachingandlearning/about" target="_self">Teaching &amp; Learning</NavDropdown.Item>
                     <NavDropdown.Item href="https://libportal.nus.edu.sg/frontend/ms/tel-imaginarium/about-tel-imaginarium" target="_self">TEL-Imaginarium</NavDropdown.Item>
