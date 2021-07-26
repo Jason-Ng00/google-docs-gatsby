@@ -16,7 +16,6 @@
 }
 
 .navItemHome {
-    color:#999 !important;
     font-size:14px;
     padding:8px 0px 8px 0px !important;
     margin:0px 10px;
@@ -30,9 +29,20 @@
     font-size:14px;
     padding:8px 0px 8px 0px !important;
     margin:0px 10px;
-    color:#003D7C !important;
-
 }
+
+.navItemNoDropdown:hover{
+    border-bottom: 3px solid #ef7c00;
+    padding:0px 0px;
+    margin:0px 10px;
+    color: #000 !important;
+
+
+    a{
+        color: #000 !important;
+    }
+}
+
 
 .navItem {
     color: #999 !important;
