@@ -1,0 +1,155 @@
+.footer{
+  max-width:100% !important;
+  background-color: #003062;
+  color: var(--light);
+  width:100%;
+  
+  h2 {
+    color:#ffffff;
+    font-size:18px;
+    margin-bottom:10px;
+  }
+
+  a{
+    text-decoration: none;
+    color: var(--light)
+}
+}
+
+
+.footerTop {
+  max-width:100%;
+  width:100%;
+  background-color: #003062;
+  color: var(--light);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  max-width: 1440px;
+  margin:0px auto;
+  position: 'absolute'; left: '50%'; top: '50%';
+  a{
+      text-decoration: none;
+      color: var(--light)
+  }
+}
+
+.footer_listItem {
+  line-height:24px;
+  font-weight:300;
+  color:#999999;
+  list-style: none;
+
+  a {
+    color:#999999;
+  }
+  a:hover {
+    color:#ffffff;
+    text-decoration: none;
+  }  
+  li {
+    color:#999999;
+    font-size:13px;
+  }
+
+  .address {
+    color:#999999;
+    font-size:13px;
+    font-family:inherit;
+    display:inline-flex;
+    margin:0px;
+  }
+}
+
+.footerCopyright {
+  max-width:100%;
+  border-top: 1px solid #003D7C;
+  background-color: #003062;
+  color: #999999;
+  padding: 40px 0;
+  text-align: center;
+  font-weight: 300;
+  display:flex;
+  font-size:20px;
+
+  a{
+    color: #999999;
+
+  }
+  a:hover {
+    color:#ffffff;
+    text-decoration: none;
+  }
+}
+
+.footerBottom {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  line-height: 15px;
+  & > div {
+    justify-content:center;
+  }
+}
+
+.icon {
+  color:#ffffff;
+  margin-right:8px;
+  font-size:13px;
+  font-weight:400;
+}
+
+.img {
+  margin:50px 5px;
+  height:32px;
+  width:32px;
+}
+
+.pseudoIcon {
+  margin: 5px 15px;
+  font-size:5px;
+}
+
+.footerMin {
+  border-left: 1px solid #003D7C;
+  display:flex;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column;
+}
+
+.footerMinContent {
+  justify-content: center;
+}
+
+.footerMinContentHeader {
+  text-align:center;
+  justify-content: center;
+}
+
+.footer_listItemMin {
+  line-height:24px;
+  font-weight:300;
+  color:#999999;
+  list-style: none;
+
+  a {
+    color:#999999;
+  }
+  a:hover {
+    color:#ffffff;
+    text-decoration: none;
+  }  
+  li {
+    color:#999999;
+    font-size:13px;
+    text-align:center;
+  }
+
+  .address {
+    color:#999999;
+    font-size:13px;
+    font-family:inherit;
+    display:inline;
+    margin-bottom:10px;
+  }
+}
