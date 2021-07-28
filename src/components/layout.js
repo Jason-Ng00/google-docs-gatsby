@@ -7,7 +7,7 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 
 import Header from "./Header/Header.js"
 import Navbar from "./Navbar/Navbar.js"
@@ -19,15 +19,7 @@ import Footer from "./Footer/Footer.js"
 
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+
 
   return (
     <Container className={styles.layout}>

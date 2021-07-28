@@ -1,10 +1,9 @@
 import {Link, graphql} from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Jumbotron } from 'react-bootstrap'
 
-export default ({
+const Page = () => ({
   data: {
     page: {
       name,
@@ -26,7 +25,7 @@ export default ({
       */}
       {cover && 
         <Jumbotron style={{ marginTop: 0, marginBottom: 20,padding:0 }}>
-      < GatsbyImage
+      <GatsbyImage
             image={cover.image.childImageSharp.gatsbyImageData}
             alt={cover.alt}
             title={cover.title}
@@ -57,3 +56,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default Page

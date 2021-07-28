@@ -2,8 +2,7 @@ import React, {useState } from 'react'
 import * as styles from './Navbar.module.scss'
 import { Container, Row, Col, Nav, Navbar, NavDropdown} from 'react-bootstrap'
 import {graphql, useStaticQuery} from "gatsby"
-import {MDXRenderer} from "gatsby-plugin-mdx"
-import { MDXProvider } from "@mdx-js/react"
+
 
 function HoverControlledDropdown(props) {
     const [isHovered, setIsHovered] = useState(false);
@@ -38,33 +37,29 @@ export default function NavBar({ menuItems }) {
     }
   `)
 
+    var menuData =[]
+    var menuItem = []
+    data.pagesPath.edges.map((edge) => {
+      if(edge.node.breadcrumb.length === 1) {
+        menuData.push(edge.node.breadcrumb)
+      } else {
+          if(!menuItem.includes(edge.node.breadcrumb[0].name)){
+            menuItem.push(edge.node.breadcrumb[0].name)
+            menuData.push(edge.node.breadcrumb)
+          } else {
+            for( var i =1; i < menuData.length; i++) {
+              if(menuData[i][0].name === edge.node.breadcrumb[0].name) {
+                menuData[i].push(edge.node.breadcrumb[1])
+              }
+           }
+          }
+      }
+      return edge
+  })
 
   return (
     <Container className={styles.navbar}>
-{/* 
-      <Navbar expand="lg"
-      >
-      <MDXProvider
-      components={{
-        // Map HTML element tag to React component
-        // ul: ({props}) => (<HoverControlledDropdown className={styles.navItem} title={props}><li>{props}</li></HoverControlledDropdown>),
-        li: NavDropdown.Item,
-        // h5: props => <Container>{props}</Container>,
-        ul: HoverControlledDropdown,
-
-        p: NavDropdown.Item,
-        // strong: 
-      }}
-    >
-        <MDXRenderer>{data.menu.childMdx.body}</MDXRenderer>
-        </MDXProvider>
-
-
-
-      </Navbar> */}
-
         <Container>
-
         <Navbar expand="lg">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -72,17 +67,15 @@ export default function NavBar({ menuItems }) {
             <Nav className="me-auto">
                 <Nav.Link className={styles.navItemHome} href="/">Home</Nav.Link>
                 
-                {data.pagesPath.edges.map((edge) => {
-         if(edge.node.breadcrumb.length == 1) {
-           if(edge.node.breadcrumb[0].name != "Home") {
-             return <Nav.Link className={styles.navItemNoDropdown} href={edge.node.breadcrumb[0].slug}>{edge.node.breadcrumb[0].name}</Nav.Link>
-         }} else {
+                {menuData.map((navItem) => {
+         if(navItem.length === 1) {
+             return <Nav.Link className={styles.navItemNoDropdown} href={navItem[0].slug}>{navItem[0].name}</Nav.Link>
+         } else {
              var rows=[];
-             for( var i =1; i < edge.node.breadcrumb.length; i++) {
-                rows.push(<NavDropdown.Item href={edge.node.breadcrumb[i].slug} target="_self">{edge.node.breadcrumb[i].name}</NavDropdown.Item>
-)
+             for( var i =1; i < navItem.length; i++) {
+                rows.push(<NavDropdown.Item href={navItem[i].slug} target="_self">{navItem[i].name}</NavDropdown.Item>)
              }
-             return  <HoverControlledDropdown className={styles.navItem} title={edge.node.breadcrumb[0].name}>
+             return  <HoverControlledDropdown className={styles.navItem} title={navItem[0].name}>
                 {rows}
              </HoverControlledDropdown>
             }
