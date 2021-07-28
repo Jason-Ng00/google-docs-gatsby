@@ -17,7 +17,6 @@ import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./Footer/Footer.js"
 
-
 const Layout = ({ children }) => {
 
 
