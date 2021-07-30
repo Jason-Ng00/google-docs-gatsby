@@ -69,13 +69,13 @@ export default function NavBar({ menuItems }) {
                 
                 {menuData.map((navItem) => {
          if(navItem.length === 1) {
-             return <Nav.Link className={styles.navItemNoDropdown} href={navItem[0].slug}>{navItem[0].name}</Nav.Link>
+             return <Nav.Link key={navItem[0].name} className={styles.navItemNoDropdown} href={navItem[0].slug}>{navItem[0].name}</Nav.Link>
          } else {
              var rows=[];
              for( var i =1; i < navItem.length; i++) {
-                rows.push(<NavDropdown.Item href={navItem[i].slug} target="_self">{navItem[i].name}</NavDropdown.Item>)
+                rows.push(<NavDropdown.Item key={navItem[i].name} href={navItem[i].slug} target="_self">{navItem[i].name}</NavDropdown.Item>)
              }
-             return  <HoverControlledDropdown className={styles.navItem} title={navItem[0].name}>
+             return  <HoverControlledDropdown key={navItem[0].name} className={styles.navItem} title={navItem[0].name}>
                 {rows}
              </HoverControlledDropdown>
             }
