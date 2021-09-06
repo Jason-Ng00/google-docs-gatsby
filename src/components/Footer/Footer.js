@@ -11,6 +11,7 @@ import { StaticImage } from "gatsby-plugin-image"
 export default function Footer(props) {
   return (
   <Container className={styles.footer}>
+  <Container>
     <Container className={styles.footerTop}>
     <Row>
       <Col xs={4} sm={4} lg={4} className="d-none d-sm-none d-lg-block">
@@ -51,12 +52,13 @@ export default function Footer(props) {
       </Col>
 
 
-      <Col xs={12} sm={12} lg={4} className="d-none d-sm-none d-lg-block">
+      <Col xs={12} sm={12} lg={4} className="d-block d-sm-block d-lg-block">
       <Col className={styles.footerMin}>
         <Row className={styles.footerMinContent}>
           <ListGroup className={styles.footer_listItem}>
           <h2>NUS Libraries</h2>
-            <li>  <FontAwesomeIcon icon={faLocationArrow} className={styles.icon}/>
+            <li>  
+              <FontAwesomeIcon icon={faLocationArrow} className={styles.iconArrow}/>
               <pre className={styles.address}>Central Library{'\n'}
               12 Kent Ridge Crescent{'\n'}
               Singapore 119275</pre>
@@ -147,104 +149,9 @@ export default function Footer(props) {
         </Col>
       </Col>
 
-      <Col className="d-block d-sm-block= d-lg-none">
-        <Row className={styles.footerMinContent}>
-          <ListGroup className={styles.footer_listItemMin}>
-          <h2 className={styles.footerMinContentHeader}>NUS Libraries</h2>
-            <li>  <FontAwesomeIcon icon={faLocationArrow} className={styles.icon}/>
-              <pre className={styles.address}>Central Library{'\n'}
-              12 Kent Ridge Crescent{'\n'}
-              Singapore 119275</pre>
-              </li>
-            <li><FontAwesomeIcon icon={faPhoneAlt} className={styles.icon}/><span style={{whiteSpace: 'pre-wrap'}}>+65 6516 2028</span></li>
-            <li><FontAwesomeIcon icon={faEnvelope} className={styles.icon}/>
-              <span><a href="mailto:askalib@nus.edu.sg">askalib@nus.edu.sg</a><br /></span>
-            </li>
-          </ListGroup> 
-        </Row>
-
-        <Row className={styles.footerMinContent}>
-        <Nav>
-            <Nav.Link href="https://www.facebook.com/NUSLibraries" target="_blank" className={styles.img}>      
-              <StaticImage
-                src="../../images/facebook.png"
-                alt="facebook"
-                height={32}
-                width={32}
-                layout="fixed"
-                loading="eager"
-                position="0 0"
-                objectFit="contain"
-              />
-            </Nav.Link>
-            <Nav.Link href="https://twitter.com/NUSlibraries" target="_blank" className={styles.img}>              
-              <StaticImage
-                  src="../../images/twitter.png"
-                  alt="twitter"
-                  height={32}
-                  width={32}
-                  layout="fixed"
-                  loading="eager"
-                  position="0 0"
-                  objectFit="contain"
-                />
-            </Nav.Link>
-            <Nav.Link href="https://instagram.com/nuslibraries" target="_blank" className={styles.img}>
-              <StaticImage
-                  src="../../images/instagram.png"
-                  alt="instagram"
-                  height={32}
-                  width={32}
-                  layout="fixed"
-                  loading="eager"
-                  position="0 0"
-                  objectFit="contain"
-                />
-            </Nav.Link>
-            <Nav.Link href="http://blog.nus.edu.sg/linus/" target="_blank" className={styles.img}>
-              <StaticImage
-                    src="../../images/word.png"
-                    alt="word"
-                    height={32}
-                    width={32}
-                    layout="fixed"
-                    loading="eager"
-                    position="0 0"
-                    objectFit="contain"
-                  />
-            </Nav.Link>
-            <Nav.Link href="https://www.youtube.com/user/nuslibraries" target="_blank" className={styles.img}>
-              <StaticImage
-                      src="../../images/youtube.png"
-                      alt="youtube"
-                      height={32}
-                      width={32}
-                      layout="fixed"
-                      loading="eager"
-                      position="0 0"
-                      objectFit="contain"
-                    />
-            </Nav.Link>
-            <Nav.Link href="https://www.flickr.com/photos/nuslibraries" target="_blank" className={styles.img}>
-              <StaticImage
-                      src="../../images/flickr.png"
-                      alt="flickr"
-                      height={32}
-                      width={32}
-                      layout="fixed"
-                      loading="eager"
-                      position="0 0"
-                      objectFit="contain"
-                    />
-            </Nav.Link>
-          </Nav>
-        </Row>
-      </Col>
-      
-
       </Row>
     </Container>
-
+  </Container>
 
     <Container className={styles.footerCopyright} style={{display:'flex'}}>
       <Col>
