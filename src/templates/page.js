@@ -1,49 +1,56 @@
-import {Link, graphql} from "gatsby"
-import React from "react"
+import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Jumbotron } from 'react-bootstrap'
+import React from "react";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
-const Page = () => ({
+const pageFromGDocs = ({
   data: {
     page: {
       name,
       cover,
-      childMarkdownRemark: {html},
+      childMarkdownRemark: { html },
+      description,
     },
   },
 }) => {
+  const pageTitle = name.split("_").pop();
   return (
-    <>
-      <Link to="/">
-        <button>{"Home"}</button>
-      </Link>
-      <h1>{name}</h1>
-      {/*
+    <Layout>
+      <Seo title={pageTitle} description={description} />
+      <div
+        style={{
+          margin: `0 auto`,
+          maxWidth: 960,
+          padding: `0 1.0875rem 1.45rem`,
+        }}
+      >
+        <h1>{pageTitle}</h1>
+        {/*
         To add a cover:
         Add an image in your Google Doc first page header
         https://support.google.com/docs/answer/86629
       */}
-      {cover && 
-        <Jumbotron style={{ marginTop: 0, marginBottom: 20,padding:0 }}>
-      <GatsbyImage
+        {cover && (
+          <GatsbyImage
             image={cover.image.childImageSharp.gatsbyImageData}
             alt={cover.alt}
             title={cover.title}
           />
-        </Jumbotron>
-      }
-      <div dangerouslySetInnerHTML={{__html: html}} />
-    </>
-  )
-}
+        )}
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </div>
+    </Layout>
+  );
+};
 
 export const pageQuery = graphql`
   query Page($path: String!) {
-    page: googleDocs(slug: {eq: $path}) {
+    page: googleDocs(slug: { eq: $path }) {
       name
       cover {
-        title
         alt
+        title
         image {
           childImageSharp {
             gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
@@ -53,8 +60,9 @@ export const pageQuery = graphql`
       childMarkdownRemark {
         html
       }
+      description
     }
   }
-`
+`;
 
-export default Page
+export default pageFromGDocs;

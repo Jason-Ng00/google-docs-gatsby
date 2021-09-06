@@ -1,7 +1,7 @@
-import React, {useState, useEffect } from 'react'
+import React, {useState} from 'react'
 import * as styles from './Navbar.module.scss'
-import { Container, Row, Col, Nav, Navbar, NavDropdown} from 'react-bootstrap'
-import {graphql, useStaticQuery} from "gatsby"
+import { Container, Nav, Navbar, NavDropdown} from 'react-bootstrap'
+import {graphql, useStaticQuery, Link} from "gatsby"
 
 
 function HoverControlledDropdown(props) {
@@ -52,25 +52,27 @@ export default React.memo(function NavBar({ menuItems }) {
       return edge
   })
 
+  const activeStyles={borderBottom: "3px solid #ef7c00", color: "#000" };
+
   return (
     <Container className={styles.navbar}>
         <Container>
-        <Navbar expand="lg">
+        <Navbar expand="sm">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             
             <Nav className="me-auto">
-                <Nav.Link className={styles.navItemHome} href="/">Home</Nav.Link>
+                <Link className={styles.navItemHome} activeStyle={activeStyles} to="/">Home</Link>
                 
                 {menuData.map((navItem) => {
          if(navItem.length === 1) {
-             return <Nav.Link key={navItem[0].name} className={styles.navItemNoDropdown} href={navItem[0].slug}>{navItem[0].name}</Nav.Link>
+             return <Link key={navItem[0].name} className={styles.navItemNoDropdown} activeStyle={activeStyles} to={navItem[0].slug}>{navItem[0].name}</Link>
          } else { 
              var rows=[];
              var dropdownItem=[];
              for( var i =1; i < navItem.length; i++) {
                if(!dropdownItem.includes(navItem[i].name)){
-                rows.push(<NavDropdown.Item key={navItem[i].name} href={navItem[i].slug} target="_self">{navItem[i].name}</NavDropdown.Item>)
+                rows.push(<Link key={navItem[i].name} className={styles.navDropdown} activeStyle={activeStyles} to={navItem[i].slug} target="_self">{navItem[i].name}</Link>)
                 dropdownItem.push(navItem[i].name)
                }
              }

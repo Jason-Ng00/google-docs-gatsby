@@ -1,6 +1,14 @@
 import React from "react";
 
 import {AnimatePresence} from 'framer-motion';
+
+export function shouldUpdateScroll(prevRouterProps, { location }) {
+  window.scrollTo(0, 0)
+  const body = document.getElementsByTagName('body')[0]
+  body.scrollTop = 0
+  return false
+}
+
 export const wrapPageElement = ({element}) => (
   <AnimatePresence exitBeforeEnter>{element}</AnimatePresence>
 );

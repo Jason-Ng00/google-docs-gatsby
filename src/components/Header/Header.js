@@ -2,7 +2,6 @@ import React from 'react'
 import * as styles from './Header.module.scss'
 import { Container } from 'react-bootstrap'
 import { StaticImage } from "gatsby-plugin-image"
-import Logo from "../../images/NUSL_logo.png"
 
 export default function Header() {
   return (

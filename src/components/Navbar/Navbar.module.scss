@@ -15,13 +15,21 @@
 
 }
 
-.navItemHome {
+.navItemHome{
     font-size:14px;
     padding:8px 0px 8px 0px !important;
     margin:0px 10px;
-    border-bottom: 3px solid #ef7c00;
     color:#003D7C !important;
+    text-decoration: none;
+}
 
+.navItemHome:hover {
+    border-bottom: 3px solid #ef7c00;
+    font-size:14px;
+    padding:8px 0px 8px 0px !important;
+    margin:0px 10px;
+    color:#003D7C !important;
+    text-decoration: none;
 }
 
 .navItemNoDropdown {
@@ -36,8 +44,7 @@
     padding:0px 0px;
     margin:0px 10px;
     color: #000 !important;
-
-
+    text-decoration: none;
     a{
         color: #000 !important;
     }
@@ -58,10 +65,6 @@
         margin-top:3px !important;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         padding:15px;
-
-        h5 {
-            margin-top:5px;
-        }
 
         a {
             border-top: 1px solid #e7e7e7;
@@ -90,6 +93,7 @@
     border-bottom: 3px solid #ef7c00;
     padding:0px 0px;
     margin:0px 10px;
+    text-decoration: none;
 
     a{
         color: #000 !important;
@@ -103,4 +107,6 @@
     margin:0px 10px;
  }
 
-  
+ .navDropdown {
+     display: block;
+ }
