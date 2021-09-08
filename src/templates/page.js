@@ -3,6 +3,8 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
+import { Container } from 'react-bootstrap'
+
 
 const pageFromGDocs = ({
   data: {
@@ -18,13 +20,7 @@ const pageFromGDocs = ({
   return (
     <Layout>
       <Seo title={pageTitle} description={description} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Container>
         <h1>{pageTitle}</h1>
         {/*
         To add a cover:
@@ -39,7 +35,7 @@ const pageFromGDocs = ({
           />
         )}
         <div dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
+      </Container>
     </Layout>
   );
 };

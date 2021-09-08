@@ -52,7 +52,7 @@ export default React.memo(function NavBar({ menuItems }) {
       return edge
   })
 
-  const activeStyles={borderBottom: "3px solid #ef7c00", color: "#000" };
+  const activeStyles={borderBottom: "3px solid #ef7c00", color:"#003D7C"};
 
   return (
     <Container className={styles.navbar}>
@@ -62,29 +62,29 @@ export default React.memo(function NavBar({ menuItems }) {
             <Navbar.Collapse id="basic-navbar-nav">
             
             <Nav className="me-auto">
-                <Link className={styles.navItemHome} activeStyle={activeStyles} to="/">Home</Link>
+                <Link className={styles.navItemNoDropdown} activeStyle={activeStyles} to="/">Home</Link>
                 
                 {menuData.map((navItem) => {
-         if(navItem.length === 1) {
-             return <Link key={navItem[0].name} className={styles.navItemNoDropdown} activeStyle={activeStyles} to={navItem[0].slug}>{navItem[0].name}</Link>
-         } else { 
-             var rows=[];
-             var dropdownItem=[];
-             for( var i =1; i < navItem.length; i++) {
-               if(!dropdownItem.includes(navItem[i].name)){
-                rows.push(<Link key={navItem[i].name} className={styles.navDropdown} activeStyle={activeStyles} to={navItem[i].slug} target="_self">{navItem[i].name}</Link>)
-                dropdownItem.push(navItem[i].name)
-               }
-             }
-             return  <HoverControlledDropdown key={navItem[0].name} className={styles.navItem} title={navItem[0].name}>
+                  if(navItem.length === 1) {
+                      return <Link key={navItem[0].name} className={styles.navItemNoDropdown} activeStyle={activeStyles} to={navItem[0].slug}>{navItem[0].name}</Link>
+                  } else { 
+                      var rows=[];
+                      var dropdownItem=[];
+                      for( var i =1; i < navItem.length; i++) {
+                        if(!dropdownItem.includes(navItem[i].name)){
+                          rows.push(<Link key={navItem[i].name} className={styles.navDropdown} to={navItem[i].slug} target="_self">{navItem[i].name}</Link>)
+                          dropdownItem.push(navItem[i].name)
+                      }
+                  }
+                return  <Link to={"/"+navItem[0].name.toLowerCase()+"/"} className={styles.navItemDropdown} activeStyle={activeStyles} partiallyActive={true}> 
+             <HoverControlledDropdown key={navItem[0].name} className={styles.navItem} title={navItem[0].name}>
                 {rows}
              </HoverControlledDropdown>
+             </Link>
             }
      })}
      
-
             </Nav>
-
             </Navbar.Collapse>
 
         </Navbar>

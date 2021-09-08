@@ -1,13 +1,17 @@
 .navbar {
     z-index: 6660;
-    height: var(--header-height);
-    padding:0px !important;
-    max-width:100% !important;
+    height: 50px;
+    padding: 0px;
+    max-width: 100%;
     background-color: #f8f8f8;
     display:flex;
     justify-content:left;
     border-top: 1px solid #e7e7e7;
     font-family: "Helvetica Neue Lt", Helvetica, Arial, sans-serif;
+    
+    & > div {
+        padding: 0px;
+    }
 
     nav{
         padding:3px;
@@ -15,25 +19,8 @@
 
 }
 
-.navItemHome{
-    font-size:14px;
-    padding:8px 0px 8px 0px !important;
-    margin:0px 10px;
-    color:#003D7C !important;
-    text-decoration: none;
-}
-
-.navItemHome:hover {
-    border-bottom: 3px solid #ef7c00;
-    font-size:14px;
-    padding:8px 0px 8px 0px !important;
-    margin:0px 10px;
-    color:#003D7C !important;
-    text-decoration: none;
-}
-
 .navItemNoDropdown {
-    color:#999 !important;
+    color:#999;
     font-size:14px;
     padding:8px 0px 8px 0px !important;
     margin:0px 10px;
@@ -43,22 +30,40 @@
     border-bottom: 3px solid #ef7c00;
     padding:0px 0px;
     margin:0px 10px;
-    color: #000 !important;
+    color: #000;
     text-decoration: none;
     a{
-        color: #000 !important;
+        color: #000;
+    }
+}
+
+.navItemDropdown {
+    color:#999;
+    font-size:14px;
+    padding: 0px;
+    margin:0px
+}
+
+.navItemDropdown:hover{
+    border-bottom: 3px solid #ef7c00;
+    padding:0px 0px;
+    margin:0px;
+    color: #000;
+    text-decoration: none;
+    a{
+        color: #000;
+        text-decoration: none;
     }
 }
 
 
 .navItem {
-    color: #999 !important;
+    color: inherit;
     font-size:14px;
-    padding-bottom:3px;
-    margin:0px 10px;
+    margin:0px;
 
     a {
-        color: #999 !important;
+        color: inherit !important;
     }
 
     & > div {
@@ -68,7 +73,7 @@
 
         a {
             border-top: 1px solid #e7e7e7;
-            color: #999 !important;
+            color: #999;
             padding: 10px 5px;
             font-size:14px;
         }
@@ -78,7 +83,7 @@
         }
 
         a:active {
-            color:#003D7C !important;
+            color:#003D7C;
             background-color:#f8f8f8;
         }
 
@@ -90,23 +95,16 @@
 }
 
 .navItem:hover{
-    border-bottom: 3px solid #ef7c00;
     padding:0px 0px;
-    margin:0px 10px;
+    margin:0px;
     text-decoration: none;
 
     a{
-        color: #000 !important;
+        color: #000;
     }
 }
-
- .navItemHome:hover {
-    border-bottom: 3px solid #ef7c00;
-    color: #000 !important;
-    padding:8px 0px 3px 0px !important;
-    margin:0px 10px;
- }
 
  .navDropdown {
      display: block;
  }
+
