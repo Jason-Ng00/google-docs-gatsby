@@ -5,15 +5,17 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
+// node_modules/gatsby-source-google-docs/utils/generate-token.js
+
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./Header/Header.js"
-import Navbar from "./Navbar/Navbar.js"
-import Footer from "./Footer/Footer.js"
-import * as styles from "./layout.module.scss"
+import Header from "../Header/Header.js"
+import Navbar from "../Navbar/Navbar.js"
+import Footer from "../Footer/Footer.js"
+import * as styles from "./Layout.module.scss"
 
 import { motion } from "framer-motion"
 import { Container } from 'react-bootstrap'
