@@ -16,7 +16,7 @@ function HoverControlledDropdown(props) {
     );
 }
 
-export default React.memo(function NavBar({ menuItems }) {
+export default function NavBar({ location }) {
     const data = useStaticQuery(graphql`
     query MenuQuery {
       pagesPath: allGoogleDocs {
@@ -53,6 +53,7 @@ export default React.memo(function NavBar({ menuItems }) {
   })
 
   const activeStyles={borderBottom: "3px solid #ef7c00", color:"#003D7C"};
+  const url = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
     <Container className={styles.navbar}>
@@ -76,11 +77,10 @@ export default React.memo(function NavBar({ menuItems }) {
                           dropdownItem.push(navItem[i].name)
                       }
                   }
-                return  <Link to={"/"+navItem[0].name.toLowerCase()+"/"} className={styles.navItemDropdown} activeStyle={activeStyles} partiallyActive={true}> 
-             <HoverControlledDropdown key={navItem[0].name} className={styles.navItem} title={navItem[0].name}>
+                return <HoverControlledDropdown style={url.includes(navItem[0].name.toLowerCase().replace(" ","-")) ? activeStyles : {}} key={navItem[0].name} className={styles.navItemDropdown} title={navItem[0].name}>
                 {rows}
              </HoverControlledDropdown>
-             </Link>
+
             }
      })}
      
@@ -93,4 +93,4 @@ export default React.memo(function NavBar({ menuItems }) {
 
   )
 }
-)
+

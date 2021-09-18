@@ -37,15 +37,9 @@
     }
 }
 
-.navItemDropdown {
-    color:#999;
-    font-size:14px;
-    padding: 0px;
-    margin:0px
-}
 
 .navItemDropdown:hover{
-    border-bottom: 3px solid #ef7c00;
+
     padding:0px 0px;
     margin:0px;
     color: #000;
@@ -54,12 +48,18 @@
         color: #000;
         text-decoration: none;
     }
+
+    & > a {
+        border-bottom: 3px solid #ef7c00;
+    }
+
 }
 
 
-.navItem {
-    color: inherit;
+.navItemDropdown {
+    color:#999;
     font-size:14px;
+    padding: 0px;
     margin:0px;
 
     a {
@@ -67,9 +67,10 @@
     }
 
     & > div {
-        margin-top:3px !important;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 0px;
+        box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
         padding:15px;
+        width:max-content;
 
         a {
             border-top: 1px solid #e7e7e7;
